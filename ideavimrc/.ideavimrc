@@ -1,0 +1,32 @@
+" 复制粘贴使用系统的粘贴板
+set clipboard+=unnamed
+
+"-----------------------------------
+"设置快捷键的前缀 mapleader
+let mapleader = ","
+let g:mapleader = ","
+"-----------------------------------
+
+
+"-----------------------------------
+" filetype on                 "开启文件类型侦测
+set mouse=a					"允许鼠标点击定位
+set incsearch               "输入搜索内容时就显示搜索结果
+set hlsearch                "搜索时高亮显示被找到的文本
+set nowrapscan              "禁止在搜索到文件两端时重新搜索
+set ignorecase              "搜索时忽略大小写
+"-----------------------------------
+
+
+"-----------------------------------
+imap <leader>a <Left>
+imap <leader>f <right>
+imap <leader>d <Esc>o
+
+""快捷保存与退出
+imap <leader>w <ESC>:w<cr>
+nmap <leader>w :w!<cr>
+vmap <leader>w <C-c>:w!<cr>
+imap <leader>q <ESC>:q<cr>
+nmap <leader>q :q<cr>
+"-----------------------------------

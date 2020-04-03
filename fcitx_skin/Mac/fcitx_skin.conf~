@@ -1,0 +1,76 @@
+[SkinInfo]
+Name=灰色MAC
+Version=0.1
+Author=嘟嘟虫 & qiyi
+Desc=port from http://pinyin.sogou.com/skins/sv_403076.html 
+
+[SkinFont]
+FontSize=18
+MenuFontSize=16
+TipColor=0 139 0
+InputColor=0 139 0
+IndexColor=0 139 0
+FirstCandColor=192 108 33
+UserPhraseColor=0 139 0
+CodeColor=0 0 0
+OtherColor=105 105 105
+ActiveMenuColor=255 255 255
+InactiveMenuColor=0 0 0
+
+[SkinMainBar]
+BackImg=bar.png
+MarginTop=45
+MarginBottom=10
+MarginLeft=50
+MarginRight=56
+Logo=logo.png
+Unlock=
+Lock=
+Legend=
+NoLegend=
+Eng=en1.png
+Active=cn1.png
+Placement=logo:18,7;punc:98,7;chttrans:54,7;fullwidth:74,7;im:36,7;vk:116,7
+
+[SkinInputBar]
+BackImg=skin2.png
+MarginTop=8
+MarginBottom=16
+MarginLeft=14
+MarginRight=56
+Resize=Resize
+ResizePos=12
+ResizeWidth=24
+InputPos=23
+OutputPos=50
+LayoutLeft=17
+LayoutRight=10
+CursorColor=0 0 0
+ForwardArrow=next.png
+ForwardArrowX=44
+ForwardArrowY=16
+BackArrow=prev.png
+BackArrowX=58
+BackArrowY=16
+
+[SkinTrayIcon]
+Active=active.png
+Inactive=inactive.png
+
+[SkinMenu]
+BackImg=bar_nt.png
+ResizeHorizontal=Copy
+ResizeVertical=Resize
+MarginTop=8
+MarginBottom=10
+MarginLeft=7
+MarginRight=20
+ActiveColor=69 139 0
+LineColor=204 204 204
+
+[SkinKeyboard]
+# Virtual Keyboard Image
+BackImg=keyboard.png
+# Key Color On Virutal Keyboard
+KeyColor=69 139 0
+
