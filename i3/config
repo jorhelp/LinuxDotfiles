@@ -57,23 +57,18 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 5; notify-send 'brightness d
 # Start Applications
 #======================================================================
 # bindsym $mod+d exec --no-startup-id dmenu_recency
+# bindsym $mod+Ctrl+b exec terminator -e 'bmenu'
+# bindsym $mod+z exec --no-startup-id morc_menu
+
 bindsym $mod+d exec --no-startup-id "rofi -show drun  -config ~/.config/rofi/themes/MoSha.rasi"
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show window -config ~/.config/rofi/themes/MoSha.rasi"
-
 bindsym $mod+0 exec --no-startup-id powerMenu.sh
-
-bindsym $mod+z exec --no-startup-id morc_menu
-bindsym $mod+Ctrl+b exec terminator -e 'bmenu'
 bindsym $mod+Return exec terminator
 bindsym $mod+F2 exec google-chrome-stable
 bindsym $mod+F3 exec nautilus
-# bindsym $mod+F3 exec ranger
-bindsym Shift+Print exec  deepin-screenshot
+bindsym $mod+F4 exec ranger
 bindsym Print exec  "flameshot gui"
-# bindsym Print exec --no-startup-id i3-scrot
-# bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-# bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-
+bindsym Shift+Print exec  deepin-screenshot
 
 
 
@@ -312,25 +307,21 @@ mode "resize" {
 #======================================================================
 # Autostart applications
 #======================================================================
-exec --no-startup-id export http_proxy="http://127.0.0.1:12333"
-exec --no-startup-id export https_proxy="http://127.0.0.1:12333"
+# exec --no-startup-id export http_proxy="http://127.0.0.1:12333"
+# exec --no-startup-id export https_proxy="http://127.0.0.1:12333"
 exec --no-startup-id xset b off
 exec --no-startup-id fcitx
 exec --no-startup-id redshift-gtk
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
+# exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
 # exec --no-startup-id xautolock -time 15 -locker blurlock
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # 自己编写的程序(防止执行多次)
 exec task_notify.py
-exec_always jorKey.py
+# exec_always jorKey.py
 
 # 设置屏幕
 exec --no-startup-id xrandr --output eDP1 --mode 1366x768 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal 
