@@ -14,7 +14,7 @@ new_float normal
 hide_edge_borders none
 
 # 圆角
-border_radius 6
+border_radius 8
 
 # change borders
 bindsym $mod+u border none
@@ -247,37 +247,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #======================================================================
-
-
-#======================================================================
-# 背景图片
-# exec_always --no-startup-id feh --bg-scale "/path/xxx.jpg"
-# wallpaper=~/Pictures/153561923466.jpg
-# feh --bg-scale --randomize $wallpaper
-#======================================================================
-# exec_always --no-startup-id feh --bg-scale "/home/jor/图片/Wallpapers/212f90387cad6158c00863671391f009.jpg"
-
-
-
-#======================================================================
-# Set shut down, restart and locking features
-#======================================================================
-# bindsym $mod+0 mode "$mode_system"
-# set $mode_system (l)ock, (e)xit, (r)eboot, (Shift+s)hutdown
-# mode "$mode_system" {
-#     bindsym l exec --no-startup-id i3exit lock, mode "default"
-#     bindsym e exec --no-startup-id i3exit logout, mode "default"
-#     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-#     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-#
-#     # exit system mode: "Enter" or "Escape"
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-
-
 
 
 #======================================================================
@@ -324,53 +295,13 @@ exec task_notify.py
 # exec_always jorKey.py
 
 # 设置屏幕
-exec --no-startup-id xrandr --output eDP1 --mode 1366x768 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal 
+exec xrandr --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off
+# exec_always --no-startup-id screen_init.sh
 
 
 
 
-
-
-#======================================================================
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
-#======================================================================
-# bar {
-#     i3bar_command i3bar -t
-#     status_command i3status
-#     position top
-#
-#     # 显示网速
-#     status_command sh ~/.i3/net-speed.sh
-#
-#     tray_output primary
-#     #tray_output eDP1
-#
-#     bindsym button4 nop
-#     bindsym button5 nop
-# #   font xft:URWGothic-Book 11
-#     strip_workspace_numbers yes
-#
-#     # 定义分隔符∥?
-#     separator_symbol "|"
-#
-#     colors{
-#         # separator #66666
-#         # background #10101000
-#         # statusline #dddddd
-#
-#         separator #0c343d
-#         background #10101000
-#         statusline #000000
-#
-#         # 工作区颜色 边框 背景 文字
-#         focused_workspace #ff9900 #0088CC #ffffff
-#         active_workspace #333333 #333333 #ffffff
-#         inactive_workspace #333333 #333333 #888888
-#         urgent_workspace #2f343a #900000 #ffffff
-#     }
-# }
-
-# hide/unhide i3status bar
+# 隐藏/显示 i3status bar
 bindsym $mod+m bar mode toggle
 
 
