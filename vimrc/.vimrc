@@ -50,10 +50,10 @@ syntax on					"允许用指定语法高亮配色方案替换默认方案
 
 "--------------------------------------
 filetype indent on          "自适应不同语言的智能缩进
-" set expandtab				"将制表符扩展为空格
-set tabstop=4			    "设置编辑时制表符占用空格数
-set shiftwidth=4			"设置格式化时制表符占用空格数
-set softtabstop=4			"让vim把连续数量的空格视为一个制表符
+set expandtab				"用space代替tab的输入
+set tabstop=4			    "设定tab宽度为4个字符
+set shiftwidth=4			"设定自动缩进为4个字符
+"set softtabstop=4			"让vim把连续数量的空格视为一个制表符
 "--------------------------------------
 
 
@@ -160,7 +160,7 @@ Plug 'https://github.com/scrooloose/nerdtree'
 " 主题
 Plug 'https://github.com/flazz/vim-colorschemes'
 " 代码补全
-" Plug 'https://github.com/Valloric/YouCompleteMe'
+Plug 'https://github.com/Valloric/YouCompleteMe'
 " 下方编译信息
 Plug 'https://github.com/skywind3000/asyncrun.vim'
 " 彩虹括号
