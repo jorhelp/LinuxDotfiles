@@ -139,7 +139,7 @@ au BufNewFile,BufRead *.c noremap <F12> ggO/* @Author: Jorhelp<jorhelp@tom.com><
 
 au BufNewFile,BufRead *.cpp noremap <F12> ggO/* @Author: Jorhelp<jorhelp@tom.com><CR><CR>@Date:<Esc>:read !date <CR>kJo<CR>@Desc:<CR>/<CR><Down>#include <iostream><CR>using namespace std;<CR><CR>int main()<CR>{<CR><CR>return 0;<CR>}<Esc>:5<CR>A
 
-au BufNewFile,BufRead *.py noremap <F12> ggO#! /usr/bin/python3<CR># coding: utf-8<CR># @Author: Jorhelp<jorhelp@tom.com><CR># @Date:<Esc>:read !date <CR>kJo# @Desc:<Esc>Ja
+au BufNewFile,BufRead *.py noremap <F12> ggO#! python3<CR># coding: utf-8<CR># @Author: Jorhelp<jorhelp@tom.com><CR># @Date:<Esc>:read !date <CR>kJo# @Desc:<Esc>Ja
 
 
 
