@@ -1,5 +1,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+exec_always xrandr --output eDP1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off
+
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
@@ -14,7 +16,7 @@ new_float normal
 hide_edge_borders none
 
 # 圆角
-border_radius 8
+# border_radius 8
 
 # change borders
 bindsym $mod+u border none
@@ -23,7 +25,7 @@ bindsym $mod+Shift+u border pixel 3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 11
+font pango:monospace 8
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -106,15 +108,15 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 # split orientation
 bindsym $mod+y split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
+bindsym $mod+q split toggle;exec notify-send 'toggle'
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking;exec notify-send 'stacking'
+bindsym $mod+w layout tabbed;exec notify-send 'tabbed'
+bindsym $mod+e layout toggle split;exec notify-send 'split'
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -278,31 +280,23 @@ mode "resize" {
 #======================================================================
 # Autostart applications
 #======================================================================
-# exec --no-startup-id export http_proxy="http://127.0.0.1:12333"
-# exec --no-startup-id export https_proxy="http://127.0.0.1:12333"
 exec --no-startup-id xset b off
 exec --no-startup-id fcitx
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nitrogen --restore
+# exec --no-startup-id picom -b
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
-# exec --no-startup-id clipit
+exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
-# exec --no-startup-id xautolock -time 15 -locker blurlock
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id polybar_launch.sh
 # 自己编写的程序(防止执行多次)
 exec task_notify.py
-# exec_always jorKey.py
 
-# 设置屏幕
-exec xrandr --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off
-# exec_always --no-startup-id screen_init.sh
-
-
-
-
+# exec --no-startup-id xautolock -time 15 -locker blurlock
 # 隐藏/显示 i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
 
 #======================================================================
@@ -372,3 +366,4 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
