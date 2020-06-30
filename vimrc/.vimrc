@@ -116,6 +116,7 @@ nmap <leader>w :w!<cr>
 vmap <leader>w <C-c>:w!<cr>
 imap <leader>q <ESC>:q<cr>
 nmap <leader>q :q<cr>
+imap <leader>e <ESC>
 
 " buffer
 nmap <leader>bn :bn<cr>
