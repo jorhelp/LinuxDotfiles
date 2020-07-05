@@ -15,6 +15,7 @@ new_float normal
 # Hide borders
 hide_edge_borders none
 
+
 # 圆角
 # border_radius 8
 
