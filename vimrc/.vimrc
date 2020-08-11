@@ -6,6 +6,7 @@
 " @Desc: My own vim config file
 "==================================================
 
+set encoding=utf-8 fileencodings=utf-8
 
 
 "--------------------------------------
