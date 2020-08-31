@@ -81,11 +81,12 @@ separator = ┊
 
 ; tray-detached = true
 tray-position = right
-tray-padding = 2
-tray-transparent = true
-tray-background = #ea9999
+; tray-padding = 2
+tray-background = ${colors.background}
 tray-scale = 1.0
-; tray-maxsize = 16
+tray-transparent = true
+tray-transparency = 0.5
+tray-radius = 6
 
 
 ;wm-restack = bspwm
