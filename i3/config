@@ -17,7 +17,7 @@ hide_edge_borders none
 
 
 # 圆角
-# border_radius 8
+border_radius 8
 
 # change borders
 bindsym $mod+u border none
@@ -63,8 +63,8 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 5; notify-send 'brightness d
 # bindsym $mod+Ctrl+b exec terminator -e 'bmenu'
 # bindsym $mod+z exec --no-startup-id morc_menu
 
-bindsym $mod+d exec --no-startup-id "rofi -show drun  -config ~/.config/rofi/themes/MoSha.rasi"
-bindsym $mod+Shift+d exec --no-startup-id "rofi -show window -config ~/.config/rofi/themes/MoSha.rasi"
+bindsym $mod+d exec --no-startup-id "rofi -show drun  -config ~/.config/rofi/themes/jor.rasi"
+bindsym $mod+Shift+d exec --no-startup-id "rofi -show window -config ~/.config/rofi/themes/jor.rasi"
 bindsym $mod+0 exec --no-startup-id powerMenu.sh
 bindsym $mod+Return exec terminator
 bindsym $mod+F2 exec google-chrome-stable
@@ -282,16 +282,17 @@ mode "resize" {
 # Autostart applications
 #======================================================================
 exec --no-startup-id xset b off
-exec --no-startup-id fcitx
+exec --no-startup-id fcitx5
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nitrogen --restore
-# exec --no-startup-id picom -b
+# exec --no-startup-id picom -b --config /home/jor/.config/picom/picom.conf
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
 exec_always --no-startup-id polybar_launch.sh
+exec --no-startup-id goldendict
 # 自己编写的程序(防止执行多次)
 exec task_notify.py
 

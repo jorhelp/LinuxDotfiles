@@ -1,0 +1,127 @@
+/* =================================
+// last modify: 
+//     2020年 08月 31日 星期一 20:11:45 CST
+// ================================= */
+
+
+configuration{
+    display-drun: "🚀️ biu~";
+    display-window: "window";
+    show-icons: true;
+}
+
+
+* {
+    columns: 1;
+    font: "MicroHei 13";
+
+    None: #fff0;
+    foreground: #333333e8;
+    background-color: #f4f4f4d4;
+    active-background: #fe83ff;
+    urgent-background: #ff0c0c;
+    selected-background: @active-background;
+    selected-urgent-background: @urgent-background;
+    selected-active-background: @active-background;
+    separatorcolor: @active-background;
+    bordercolor: @active-background;
+}
+
+#window {
+    width:         38%;
+    height:        50%;
+    border:        2;
+    padding:       15;
+    border-radius: 8;
+    border-color: @bordercolor;
+}
+
+#mainbox {
+    background-color: @None;
+    children: [inputbar, listview];
+    border:  0;
+    padding: 5;
+}
+
+#listview {
+    background-color: @None;
+    fixed-height: 0;
+    border:       2px dash 0px 0px ;
+    border-color: @bordercolor;
+    spacing:      5px ;
+    scrollbar:    false;
+    padding:      2px 0px 0px ;
+}
+
+#element {
+    background-color: @None;
+    border:  0;
+    border-radius: 5px;
+}
+
+#element.normal.normal {
+    background-color: @None;
+    text-color:       @foreground;
+}
+
+#element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+#element.normal.active {
+    background-color: @active-background;
+    text-color:       @foreground;
+}
+
+#element.selected.normal {
+    background-color: @selected-background;
+    text-color:       @foreground;
+}
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @foreground;
+}
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @foreground;
+}
+#element.alternate.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+#element.alternate.urgent {
+    background-color: @urgent-background;
+    text-color:       @foreground;
+}
+#element.alternate.active {
+    background-color: @active-background;
+    text-color:       @foreground;
+}
+
+
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    background-color: #00000000;
+}
+
+#case-indicator {
+    background-color: #00000000;
+    spacing:    0;
+}
+#entry {
+    background-color: #00000000;
+    spacing:    0;
+}
+#prompt {
+    background-color: #00000000;
+    spacing:    0;
+}
+
+#textbox-prompt-colon {
+    background-color: #00000000;
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+}
+
