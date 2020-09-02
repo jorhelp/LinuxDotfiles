@@ -13,7 +13,7 @@ configuration{
 
 * {
     columns: 1;
-    font: "MicroHei 13";
+    font: "MicroHei 14";
 
     None: #fff0;
     foreground: #333333e8;
@@ -48,7 +48,7 @@ configuration{
     fixed-height: 0;
     border:       2px dash 0px 0px ;
     border-color: @bordercolor;
-    spacing:      5px ;
+    spacing:      10px ;
     scrollbar:    false;
     padding:      2px 0px 0px ;
 }
