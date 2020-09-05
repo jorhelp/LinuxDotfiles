@@ -205,6 +205,8 @@ assign [class="netease-cloud-music"] $ws3
 assign [class="ieaseMusic"] $ws3
 assign [class="chrome"] $ws2
 assign [class="TIM"] $ws3
+assign [class="qq"] $ws3
+assign [class="Wechat"] $ws3
 assign [class="electronic-wechat"] $ws3
 assign [class="VirtualBox"] $ws4
 # assign [class="Firefox"] 2
@@ -284,7 +286,7 @@ mode "resize" {
 exec --no-startup-id xset b off
 exec --no-startup-id fcitx5
 exec --no-startup-id redshift-gtk
-exec --no-startup-id nitrogen --restore
+exec_always --no-startup-id nitrogen --restore
 # exec --no-startup-id picom -b --config /home/jor/.config/picom/picom.conf
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id nm-applet
@@ -292,9 +294,10 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
 exec_always --no-startup-id polybar_launch.sh
-exec --no-startup-id goldendict
+# exec --no-startup-id goldendict
+exec --no-startup-id nextcloud
 # 自己编写的程序(防止执行多次)
-exec task_notify.py
+# exec task_notify.py
 
 # exec --no-startup-id xautolock -time 15 -locker blurlock
 # 隐藏/显示 i3status bar
