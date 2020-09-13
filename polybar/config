@@ -111,7 +111,7 @@ label = %title:0:18:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = "test"
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -241,7 +241,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 format = <ramp> <label>
 interval = 2
-label = test%percentage%%
+label = %percentage%%
 
 
 ; Only applies if <ramp> is used
