@@ -374,8 +374,8 @@ label-connected =  %upspeed%  %downspeed%
 label-connected-foreground = ${colors.foreground}
 
 ; Default: (none)
-label-disconnected = @_@ 没网
-label-disconnected-foreground = #f21f09
+label-disconnected = @_@ wifi未连接
+label-disconnected-foreground = #FFFF37
 
 ; Default: (none)
 ;label-packetloss = %essid%
