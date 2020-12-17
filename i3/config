@@ -1,6 +1,6 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec_always xrandr --output eDP1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off
+exec_always xrandr --output DP1 --primary --mode 2560x1440 --rate 144 --pos 0x0 --rotate normal 
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
@@ -17,7 +17,7 @@ hide_edge_borders none
 
 
 # 圆角
-border_radius 8
+border_radius 6
 
 # change borders
 bindsym $mod+u border none
@@ -63,15 +63,18 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 5; notify-send 'brightness d
 # bindsym $mod+Ctrl+b exec terminator -e 'bmenu'
 # bindsym $mod+z exec --no-startup-id morc_menu
 
-bindsym $mod+d exec --no-startup-id "rofi -show drun  -config ~/.config/rofi/themes/jor.rasi"
+# bindsym $mod+d exec --no-startup-id "rofi -show drun  -config ~/.config/rofi/themes/jor.rasi"
+bindsym $mod+d exec --no-startup-id xfce4-appfinder
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show window -config ~/.config/rofi/themes/jor.rasi"
-bindsym $mod+0 exec --no-startup-id powerMenu.sh
-bindsym $mod+Return exec terminator
-bindsym $mod+F2 exec google-chrome-stable
+# bindsym $mod+0 exec --no-startup-id powerMenu.sh
+bindsym $mod+0 exec --no-startup-id arcolinux-logout
+bindsym $mod+Return exec terminator;focus
+bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec nautilus
 bindsym $mod+F4 exec ranger
 bindsym Print exec  "flameshot gui"
 bindsym Shift+Print exec  deepin-screenshot
+
 
 
 
@@ -204,6 +207,7 @@ workspace $ws5 output primary
 assign [class="netease-cloud-music"] $ws3
 assign [class="ieaseMusic"] $ws3
 assign [class="chrome"] $ws2
+assign [class="firefox"] $ws2
 assign [class="TIM"] $ws3
 assign [class="qq"] $ws3
 assign [class="Wechat"] $ws3
@@ -235,6 +239,8 @@ for_window [class="VirtualBox"] floating enable
 for_window [title="tim"] floating enable
 for_window [class="netease-cloud-music"] floating enable
 for_window [class="ieaseMusic"] floating enable
+for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="qv2ray"] floating enable
 
 # for_window [class="idea"] floating enable
 # for_window [class="charm"] floating enable
@@ -287,13 +293,13 @@ exec --no-startup-id xset b off
 exec --no-startup-id fcitx5
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id nitrogen --restore
-# exec --no-startup-id picom -b --config /home/jor/.config/picom/picom.conf
+exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
-exec_always --no-startup-id polybar_launch.sh
+exec_always --no-startup-id ~/.config/i3/scripts/polybar_launch.sh
 # exec --no-startup-id goldendict
 exec --no-startup-id nextcloud
 # 自己编写的程序(防止执行多次)
