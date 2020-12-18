@@ -1,0 +1,15 @@
+# zathura使用 # 作为注释
+set default-bg "#C7EDCC"
+set recolor true
+set recolor-lightcolor "#C7EDCC"
+set recolor-darkcolor "#000000"
+
+#set font "17"
+set window-width 800
+set window-height 1000
+set recolor true
+
+map o zoom out
+map i zoom in
+map <C-k> scroll half-up
+map <C-j> scroll half-down
