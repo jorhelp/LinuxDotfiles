@@ -21,8 +21,8 @@
     separator_height = 1
     padding = 10
     horizontal_padding = 10
-    frame_width = 0
-    frame_color = "#a4c2f4"
+    frame_width = 2
+    frame_color =  "#a4c2f4"
     separator_color = frame
 	# Sort messages by urgency.
     sort = yes
@@ -52,7 +52,7 @@
     always_run_script = true
     startup_notification = false
     verbosity = mesg
-    corner_radius = 4
+    corner_radius = 6
     force_xinerama = false
     mouse_left_click = do_action
     mouse_middle_click = close_all
