@@ -176,9 +176,56 @@ Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/majutsushi/tagbar'
 " MarkDown
 Plug 'https://github.com/suan/vim-instant-markdown'
+" Latex
+Plug 'https://github.com/lervag/vimtex'
+" latex 实时预览
+Plug 'xuhdev/vim-latex-live-preview'
+" 片段引擎
+Plug 'https://github.com/SirVer/ultisnips'
+" 片段仓库
+Plug 'honza/vim-snippets'
+" " supertab用来防止使用tab展开snippet与youcompleteme的tab补全发生冲突
+" Plug 'ervandew/supertab'
 
 " Initialize plugin system
 call plug#end()
+
+"--------------------------------------
+" supertab
+"--------------------------------------
+
+
+"--------------------------------------
+" vimtex
+"--------------------------------------
+autocmd Filetype tex setl updatetime=1   " 刷新时间
+let g:livepreview_previewer='zathura'
+let g:livepreview_cursorhold_recompile=1
+
+
+"--------------------------------------
+" vimtex
+"--------------------------------------
+" Prevent that vim detect a file with the tex suffix as a plaintex
+let g:tex_flavor='latex'
+" Set the viewer method
+let g:vimtex_view_method='zathura'
+" Never opened/closed the quickfix window automatically. The quickfix window
+" shows the errors and/or warnings when compile, and we can open the quickfix windows use \le
+let g:vimtex_quickfix_mode=0
+
+
+"--------------------------------------
+" vim-snippetes
+"--------------------------------------
+
+
+"--------------------------------------
+" ultisnips
+"--------------------------------------
+let g:UltiSnipsExpandTrigger="<leader>t"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 
