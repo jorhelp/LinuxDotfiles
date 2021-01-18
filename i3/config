@@ -1,6 +1,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec_always xrandr --output DP1 --primary --mode 2560x1440 --rate 144 --pos 0x0 --rotate normal 
+# exec_always xrandr --output DP1 --primary --mode 2560x1440 --rate 144 --pos 0x0 --rotate normal
+exec_always xrandr --output eDP1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off
+
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
@@ -241,6 +243,8 @@ for_window [class="netease-cloud-music"] floating enable
 for_window [class="ieaseMusic"] floating enable
 for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="qv2ray"] floating enable
+for_window [class="Nautilus"] floating enable
+for_window [title="Figure*"] floating enable
 
 # for_window [class="idea"] floating enable
 # for_window [class="charm"] floating enable
