@@ -244,7 +244,11 @@ for_window [class="ieaseMusic"] floating enable
 for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="qv2ray"] floating enable
 for_window [class="Nautilus"] floating enable
-for_window [title="Figure*"] floating enable
+for_window [title="Figure*"] floating enable  # matplotlib
+
+# sdu vpn
+for_window [title="EasyConnect"] floating enable
+for_window [class="EasyConnect"] floating enable
 
 # for_window [class="idea"] floating enable
 # for_window [class="charm"] floating enable
@@ -302,7 +306,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec --no-startup-id blueman-applet
+exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id ~/.config/i3/scripts/polybar_launch.sh
 # exec --no-startup-id goldendict
 exec --no-startup-id nextcloud
