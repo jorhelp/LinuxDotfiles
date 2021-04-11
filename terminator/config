@@ -2,10 +2,10 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.7
+    background_darkness = 0.80
     background_type = transparent
     cursor_color = "#aaaaaa"
-    font = 文泉驿等宽微米黑 Italic 12
+    font = 文泉驿等宽微米黑 Italic 13
     foreground_color = "#f14eff"
     show_titlebar = False
     scrollbar_position = hidden
