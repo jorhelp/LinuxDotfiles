@@ -1,5 +1,4 @@
 [global_config]
-  borderless = True
 [keybindings]
 [profiles]
   [[default]]
@@ -15,6 +14,7 @@
 [layouts]
   [[default]]
     [[[window0]]]
+      size = 1200, 950
       type = Window
       parent = ""
     [[[child1]]]
