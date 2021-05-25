@@ -2,7 +2,8 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.80
+    background_color = "#24262a"
+    background_darkness = 0.8
     background_type = transparent
     cursor_color = "#aaaaaa"
     font = 文泉驿等宽微米黑 Italic 13
