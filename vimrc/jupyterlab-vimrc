@@ -1,0 +1,13 @@
+{
+    // jupyterlab-vimrc:vimrc
+    "imap": [
+        [",q", "<Esc>"],
+        [",d", "<Esc>o"],
+    ],
+    
+    "inoremap": [
+        [",a", "h"],
+        
+        [",f", "l"],
+    ],
+}
