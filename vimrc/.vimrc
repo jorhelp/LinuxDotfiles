@@ -66,7 +66,8 @@ set nofoldenable            "启动vim时关闭折叠代码
 
 
 "--------------------------------------
-set number					"显示行号
+" set number					"显示行号
+set number relativenumber	"当前行显示绝对行号，其他行显示相对行号
 set cursorline				"突出显示当前行
 " set cursorcolumn          "突出显示当前列
 set ruler					"开启光标位置提示
