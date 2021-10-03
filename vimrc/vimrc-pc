@@ -1,0 +1,392 @@
+"==================================================
+" @Author: Jorhelp(jorhelp@qq.com)
+"
+" @Date: 2021年 10月 03日 星期三 19:48:50 CST
+"
+" @Desc: My own vim config file
+"==================================================
+
+set encoding=utf-8 fileencodings=utf-8
+
+
+"--------------------------------------
+"设置快捷键的前缀 mapleader
+let mapleader = ","
+let g:mapleader = ","
+"--------------------------------------
+
+
+"--------------------------------------
+"让配置变更保存之后立即生效
+" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+"--------------------------------------
+
+
+"--------------------------------------
+filetype on                 "开启文件类型侦测
+filetype plugin on          "根据侦测到的不同类型加载对应的插件
+set wildmenu				"vim 自身命令行模式智能补全
+set nocompatible			"关闭 vi 兼容模式
+set mouse=a					"允许鼠标点击定位
+set noerrorbells            "关闭错误信息响铃
+set novisualbell            "关闭使用可视响铃代替呼叫
+set t_vb=                   "置空错误铃声的终端代码
+"--------------------------------------
+
+
+"--------------------------------------
+set autoread				"当文件被外部改变时自动读取  
+set nobackup                "覆盖文件时不备份
+set autochdir               "自动切换当前目录为当前文件所在的目录
+set backupcopy=yes          "设置备份时的行为为覆盖
+"--------------------------------------
+
+
+
+"--------------------------------------
+syntax enable				"开启语法高亮功能
+syntax on					"允许用指定语法高亮配色方案替换默认方案
+"--------------------------------------
+
+
+"--------------------------------------
+filetype indent on          "自适应不同语言的智能缩进
+set expandtab				"用space代替tab的输入
+set tabstop=4			    "设定tab宽度为4个字符
+set shiftwidth=4			"设定自动缩进为4个字符
+"set softtabstop=4			"让vim把连续数量的空格视为一个制表符
+"--------------------------------------
+
+
+"--------------------------------------
+set foldmethod=indent       "基于缩进进行代码折叠
+set foldmethod=syntax       "基于语法进行代码折叠
+set nofoldenable            "启动vim时关闭折叠代码
+"--------------------------------------
+
+
+"--------------------------------------
+" set number					"显示行号
+set number relativenumber	"当前行显示绝对行号，其他行显示相对行号
+set cursorline				"突出显示当前行
+" set cursorcolumn          "突出显示当前列
+set ruler					"开启光标位置提示
+set laststatus=2            "总是显示状态栏(默认值为1, 无法显示状态栏)
+"禁止显示滚动条
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+"禁止显示菜单和工具条
+set guioptions-=m
+set guioptions-=T
+"--------------------------------------
+
+
+"--------------------------------------
+set incsearch               "输入搜索内容时就显示搜索结果
+set hlsearch                "搜索时高亮显示被找到的文本
+set nowrapscan              "禁止在搜索到文件两端时重新搜索
+set ignorecase              "搜索时忽略大小写
+"--------------------------------------
+
+
+set hidden " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
+set smartindent " 开启新行时使用智能自动缩进
+set backspace=indent,eol,start
+" 不设定在插入状态无法用退格键和 Delete 键删除回车符
+set cmdheight=1 " 设定命令行的行数为 1
+
+
+"---------------------------
+"自定义按键映射
+"---------------------------
+" 选中状态下 Ctrl+c 复制
+vmap <C-c> "+y
+
+""方向键
+inoremap <C-l> <Right>
+inoremap <C-k> <Up>
+inoremap <C-j> <Esc>o
+imap <leader>a <Left>
+imap <leader>f <right>
+imap <leader>d <Esc>o
+
+""快捷保存与退出
+imap <leader>w <ESC>:w<cr>
+nmap <leader>w :w!<cr>
+vmap <leader>w <C-c>:w!<cr>
+imap <leader>q <ESC>:q<cr>
+nmap <leader>q :q<cr>
+imap <leader>e <ESC>
+
+" buffer
+nmap <leader>bn :bn<cr>
+nmap <leader>bp :bp<cr>
+
+
+"窗口分割时,进行切换的按键热键需要连接两次,比如从下方窗口移动
+"光标到上方窗口,需要<c-w><c-w>k,非常麻烦,现在重映射为<c-k>,切换的
+"时候会变得非常方便.
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+
+" F5 运行(单个文件)
+au BufNewFile,BufRead *.py  nnoremap <silent> <F5> :! ./%<cr>
+au BufNewFile,BufRead *.sh  nnoremap <silent> <F5> :! ./%<cr>
+
+
+"---------------------------
+"设置文件头
+"---------------------------
+"文件头部注释
+au BufNewFile,BufRead *.c noremap <F12> ggO/* @Author: Jorhelp<jorhelp@tom.com><CR><CR>@Date:<Esc>:read !date <CR>kJo<CR>@Desc:<CR>/<CR><Down>
+
+au BufNewFile,BufRead *.cpp noremap <F12> ggO/* @Author: Jorhelp<jorhelp@tom.com><CR><CR>@Date:<Esc>:read !date <CR>kJo<CR>@Desc:<CR>/<CR><Down>#include <iostream><CR>using namespace std;<CR><CR>int main()<CR>{<CR><CR>return 0;<CR>}<Esc>:5<CR>A
+
+au BufNewFile,BufRead *.py noremap <F12> ggO#! /bin/python3<CR># coding: utf-8<CR># @Author: qihong@biomap.com<CR># @Date:<Esc>:read !date <CR>kJo# @Desc:<Esc>Ja
+
+au BufNewFile,BufRead *.sh noremap <F12> ggO#! /bin/sh<CR># @Author: qihong_2021@biomap.com<CR># @Date:<Esc>:read !date <CR>kJo# @Desc:<Esc>Ja
+
+
+
+
+
+"*******************************************************
+" 插件部分
+"*******************************************************
+" Specify a directory for plugins 
+call plug#begin('~/.vim/plugged')
+
+" 括号补全
+Plug 'https://github.com/jiangmiao/auto-pairs'
+" 文件树
+Plug 'https://github.com/scrooloose/nerdtree'
+" 主题
+Plug 'embark-theme/vim', { 'as': 'embark' }
+Plug 'https://github.com/joshdick/onedark.vim'
+" 代码补全
+Plug 'https://github.com/Valloric/YouCompleteMe'
+" 彩虹括号
+Plug 'https://github.com/kien/rainbow_parentheses.vim'
+" 注释工具
+Plug 'https://github.com/scrooloose/nerdcommenter'
+" 状态栏
+Plug 'https://github.com/vim-airline/vim-airline'
+" 标识符列表
+Plug 'https://github.com/majutsushi/tagbar'
+" MarkDown
+Plug 'https://github.com/suan/vim-instant-markdown'
+" Latex
+Plug 'https://github.com/lervag/vimtex'
+" latex 实时预览
+Plug 'xuhdev/vim-latex-live-preview'
+" 片段引擎
+Plug 'https://github.com/SirVer/ultisnips'
+" 片段仓库
+Plug 'honza/vim-snippets'
+" " supertab用来防止使用tab展开snippet与youcompleteme的tab补全发生冲突
+Plug 'ervandew/supertab'
+
+" Initialize plugin system
+call plug#end()
+
+"--------------------------------------
+" supertab
+"--------------------------------------
+
+"--------------------------------------
+" theme 
+"--------------------------------------
+colorscheme onedark
+
+
+"--------------------------------------
+" vimtex
+"--------------------------------------
+autocmd Filetype tex setl updatetime=1   " 刷新时间
+let g:livepreview_previewer='zathura'
+let g:livepreview_cursorhold_recompile=1
+
+" Prevent that vim detect a file with the tex suffix as a plaintex
+let g:tex_flavor='latex'
+" Set the viewer method
+let g:vimtex_view_method='zathura'
+" Never opened/closed the quickfix window automatically. The quickfix window
+" shows the errors and/or warnings when compile, and we can open the quickfix windows use \le
+let g:vimtex_quickfix_mode=0
+
+
+
+"--------------------------------------
+" ultisnips
+"--------------------------------------
+let g:UltiSnipsExpandTrigger="<leader>t"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+
+"--------------------------------------
+"nerdtree
+"--------------------------------------
+" 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）
+" autocmd VimEnter * NERDTree
+
+" 按下 F2 调出/隐藏 NERDTree
+map  <F2> :silent! NERDTreeToggle<CR>
+
+" 将 NERDTree 的窗口设置在 vim 窗口的右侧（默认为左侧）
+" let NERDTreeWinPos="right"
+
+" 当打开 NERDTree 窗口时，自动显示 Bookmarks
+let NERDTreeShowBookmarks=1
+
+""窗口尺寸
+let g:NERDTreeWinSize=25
+
+""窗口是否显示行号
+let g:NERDTreeShowLineNumbers=0
+
+""不显示隐藏文件
+let g:NERDTreeHidden=0
+"过滤: 所有指定文件和文件夹不显示
+let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__']
+
+""打开vim时如果没有文件自动打开NERDTree
+autocmd vimenter * if !argc()|NERDTree|endif
+
+""当NERDTree为剩下的唯一窗口时自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+
+"--------------------------------------
+"YouCompleteMe
+"--------------------------------------
+set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+" let g:ycm_key_invoke_completion = '<c-z>'
+set completeopt=menu,menuone
+
+" noremap <c-z> <NOP>
+
+let g:ycm_semantic_triggers =  {
+		   \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+		   \ 'cs,lua,javascript': ['re!\w{2}'],
+		   \ }
+
+
+" 不显示开启vim时检查ycm_extra_conf文件的信息
+let g:ycm_confirm_extra_conf=0
+
+" 开启基于tag的补全，可以在这之后添加需要的标签路径
+let g:ycm_collect_identifiers_from_tags_files=1
+
+"注释和字符串中的文字也会被收入补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+
+" 输入第2个字符开始补全
+let g:ycm_min_num_of_chars_for_completion=2
+
+" 禁止缓存匹配项,每次都重新生成匹配项
+let g:ycm_cache_omnifunc=0
+
+" 开启语义补全
+let g:ycm_seed_identifiers_with_syntax=1
+
+"在注释输入中也能补全
+let g:ycm_complete_in_comments = 1
+
+"在字符串输入中也能补全
+let g:ycm_complete_in_strings = 1
+
+
+
+
+
+"--------------------------------------
+"rainbow_parentheses
+"--------------------------------------
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+
+"--------------------------------------
+"nerdcommenter
+"--------------------------------------
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" 让注释左侧对齐，而不是随着代码缩进
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+""let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+
+
+
+"--------------------------------------
+" vim-airline
+"--------------------------------------
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" 几个主题：murmur bubblegum cobalt2 laederon wombat deus simple
+" kolor fruit_punch behelit
+let g:airline_theme = 'onedark'
+
+" " 顶部配置
+" let g:airline#extensions#tabline#left_sep = '◤'
+" let g:airline#extensions#tabline#left_alt_sep = ' '
+" let g:airline#extensions#tabline#right_sep = '◢'
+" let g:airline#extensions#tabline#right_alt_sep = ' '
+" let g:airline#extensions#tabline#formatter = 'default'
+"
+" " 底部配置
+" let g:airline_left_sep = "◤"
+" let g:airline_right_sep = "◢"
+
+
+"--------------------------------------
+" tagbar
+"--------------------------------------
+" 需要安装 ctags
+nmap <F8> :TagbarToggle<CR>
+
+
+"--------------------------------------
+" MarkDown
+"--------------------------------------
+"禁止自启动
+let g:instant_markdown_autostart = 0
+
+"让网络中的其他主机也可以访问
+let g:instant_markdown_open_to_the_world = 1
+
+"按 F6 启动
+map <F6> :InstantMarkdownPreview<CR>

@@ -1,7 +1,7 @@
 "==================================================
-" @Author: Jorhelp 
+" @Author: Jorhelp(jorhelp@qq.com)
 "
-" @Date: 2020年 01月 15日 星期三 19:48:50 CST
+" @Date: 2021年 10月 03日 星期三 19:48:50 CST
 "
 " @Desc: My own vim config file
 "==================================================
@@ -25,9 +25,9 @@ let g:mapleader = ","
 "--------------------------------------
 filetype on                 "开启文件类型侦测
 filetype plugin on          "根据侦测到的不同类型加载对应的插件
-set wildmenu				"vim 自身命令行模式智能补全
-set nocompatible			"关闭 vi 兼容模式
-set mouse=a					"允许鼠标点击定位
+set wildmenu                "vim 自身命令行模式智能补全
+set nocompatible            "关闭 vi 兼容模式
+set mouse=a                 "允许鼠标点击定位
 set noerrorbells            "关闭错误信息响铃
 set novisualbell            "关闭使用可视响铃代替呼叫
 set t_vb=                   "置空错误铃声的终端代码
@@ -35,7 +35,7 @@ set t_vb=                   "置空错误铃声的终端代码
 
 
 "--------------------------------------
-set autoread				"当文件被外部改变时自动读取  
+set autoread                "当文件被外部改变时自动读取  
 set nobackup                "覆盖文件时不备份
 set autochdir               "自动切换当前目录为当前文件所在的目录
 set backupcopy=yes          "设置备份时的行为为覆盖
@@ -44,17 +44,17 @@ set backupcopy=yes          "设置备份时的行为为覆盖
 
 
 "--------------------------------------
-syntax enable				"开启语法高亮功能
-syntax on					"允许用指定语法高亮配色方案替换默认方案
+syntax enable               "开启语法高亮功能
+syntax on                   "允许用指定语法高亮配色方案替换默认方案
 "--------------------------------------
 
 
 "--------------------------------------
 filetype indent on          "自适应不同语言的智能缩进
-set expandtab				"用space代替tab的输入
-set tabstop=4			    "设定tab宽度为4个字符
-set shiftwidth=4			"设定自动缩进为4个字符
-"set softtabstop=4			"让vim把连续数量的空格视为一个制表符
+set expandtab               "用space代替tab的输入
+set tabstop=4               "设定tab宽度为4个字符
+set shiftwidth=4            "设定自动缩进为4个字符
+"set softtabstop=4          "让vim把连续数量的空格视为一个制表符
 "--------------------------------------
 
 
@@ -66,11 +66,10 @@ set nofoldenable            "启动vim时关闭折叠代码
 
 
 "--------------------------------------
-" set number					"显示行号
-set number relativenumber	"当前行显示绝对行号，其他行显示相对行号
-set cursorline				"突出显示当前行
+set number relativenumber   "本行使用绝对行号，其他行使用相对行号
+set cursorline              "突出显示当前行
 " set cursorcolumn          "突出显示当前列
-set ruler					"开启光标位置提示
+set ruler                   "开启光标位置提示
 set laststatus=2            "总是显示状态栏(默认值为1, 无法显示状态栏)
 "禁止显示滚动条
 set guioptions-=l
@@ -133,20 +132,17 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" F5 运行(单个文件)
+au BufNewFile,BufRead *.py  nnoremap <silent> <F5> :! ./%<cr>
+au BufNewFile,BufRead *.sh  nnoremap <silent> <F5> :! ./%<cr>
+
 
 "---------------------------
 "设置文件头
 "---------------------------
 "文件头部注释
-au BufNewFile,BufRead *.c noremap <F12> ggO/* @Author: Jorhelp<jorhelp@tom.com><CR><CR>@Date:<Esc>:read !date <CR>kJo<CR>@Desc:<CR>/<CR><Down>
-
-au BufNewFile,BufRead *.cpp noremap <F12> ggO/* @Author: Jorhelp<jorhelp@tom.com><CR><CR>@Date:<Esc>:read !date <CR>kJo<CR>@Desc:<CR>/<CR><Down>#include <iostream><CR>using namespace std;<CR><CR>int main()<CR>{<CR><CR>return 0;<CR>}<Esc>:5<CR>A
-
 au BufNewFile,BufRead *.py noremap <F12> ggO#! /bin/python3<CR># coding: utf-8<CR># @Author: qihong@biomap.com<CR># @Date:<Esc>:read !date <CR>kJo# @Desc:<Esc>Ja
-
 au BufNewFile,BufRead *.sh noremap <F12> ggO#! /bin/sh<CR># @Author: qihong_2021@biomap.com<CR># @Date:<Esc>:read !date <CR>kJo# @Desc:<Esc>Ja
-
-
 
 
 
@@ -161,32 +157,23 @@ Plug 'https://github.com/jiangmiao/auto-pairs'
 " 文件树
 Plug 'https://github.com/scrooloose/nerdtree'
 " 主题
-Plug 'https://github.com/flazz/vim-colorschemes'
+Plug 'https://github.com/joshdick/onedark.vim'
 " 代码补全
-Plug 'https://github.com/Valloric/YouCompleteMe'
-" 下方编译信息
-Plug 'https://github.com/skywind3000/asyncrun.vim'
+Plug 'https://github.com/Shougo/neocomplcache.vim'
 " 彩虹括号
 Plug 'https://github.com/kien/rainbow_parentheses.vim'
 " 注释工具
 Plug 'https://github.com/scrooloose/nerdcommenter'
 " 状态栏主题设置
 Plug 'https://github.com/vim-airline/vim-airline'
-Plug 'https://github.com/vim-airline/vim-airline-themes'
 " 标识符列表
 Plug 'https://github.com/majutsushi/tagbar'
-" MarkDown
-Plug 'https://github.com/suan/vim-instant-markdown'
-" Latex
-Plug 'https://github.com/lervag/vimtex'
-" latex 实时预览
-Plug 'xuhdev/vim-latex-live-preview'
 " 片段引擎
 Plug 'https://github.com/SirVer/ultisnips'
 " 片段仓库
 Plug 'honza/vim-snippets'
-" " supertab用来防止使用tab展开snippet与youcompleteme的tab补全发生冲突
-" Plug 'ervandew/supertab'
+" supertab用来防止使用tab展开snippet与youcompleteme的tab补全发生冲突
+Plug 'ervandew/supertab'
 
 " Initialize plugin system
 call plug#end()
@@ -197,28 +184,9 @@ call plug#end()
 
 
 "--------------------------------------
-" vimtex
+" colorscheme
 "--------------------------------------
-autocmd Filetype tex setl updatetime=1   " 刷新时间
-let g:livepreview_previewer='zathura'
-let g:livepreview_cursorhold_recompile=1
-
-
-"--------------------------------------
-" vimtex
-"--------------------------------------
-" Prevent that vim detect a file with the tex suffix as a plaintex
-let g:tex_flavor='latex'
-" Set the viewer method
-let g:vimtex_view_method='zathura'
-" Never opened/closed the quickfix window automatically. The quickfix window
-" shows the errors and/or warnings when compile, and we can open the quickfix windows use \le
-let g:vimtex_quickfix_mode=0
-
-
-"--------------------------------------
-" vim-snippetes
-"--------------------------------------
+colorscheme onedark
 
 
 "--------------------------------------
@@ -254,93 +222,13 @@ let g:NERDTreeShowLineNumbers=0
 ""不显示隐藏文件
 let g:NERDTreeHidden=0
 "过滤: 所有指定文件和文件夹不显示
-""let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__']
+let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__']
 
 ""打开vim时如果没有文件自动打开NERDTree
 autocmd vimenter * if !argc()|NERDTree|endif
 
 ""当NERDTree为剩下的唯一窗口时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-
-
-"--------------------------------------
-"vim-colorschemes
-"--------------------------------------
-" 几个常用主题
-" colorscheme jor
-colorscheme jor_3
-
-"--------------------------------------
-"YouCompleteMe
-"--------------------------------------
-set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_server_log_level = 'info'
-" let g:ycm_key_invoke_completion = '<c-z>'
-set completeopt=menu,menuone
-
-" noremap <c-z> <NOP>
-
-let g:ycm_semantic_triggers =  {
-		   \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-		   \ 'cs,lua,javascript': ['re!\w{2}'],
-		   \ }
-
-
-" 不显示开启vim时检查ycm_extra_conf文件的信息
-let g:ycm_confirm_extra_conf=0
-
-" 开启基于tag的补全，可以在这之后添加需要的标签路径
-let g:ycm_collect_identifiers_from_tags_files=1
-
-"注释和字符串中的文字也会被收入补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
-
-" 输入第2个字符开始补全
-let g:ycm_min_num_of_chars_for_completion=2
-
-" 禁止缓存匹配项,每次都重新生成匹配项
-let g:ycm_cache_omnifunc=0
-
-" 开启语义补全
-let g:ycm_seed_identifiers_with_syntax=1
-
-"在注释输入中也能补全
-let g:ycm_complete_in_comments = 1
-
-"在字符串输入中也能补全
-let g:ycm_complete_in_strings = 1
-
-
-"--------------------------------------
-"asyncrun
-"--------------------------------------
-Plug 'skywind3000/asyncrun.vim'
-
-" 自动打开 quickfix window ，高度为 6
-let g:asyncrun_open = 6
-
-" 任务结束时候响铃提醒
-let g:asyncrun_bell = 1
-
-" 设置 F10 打开/关闭 Quickfix 窗口
-nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-
-" F9 编译(单个文件)
-au BufNewFile,BufRead *.c  nnoremap <silent> <F9> :w<cr>:AsyncRun g++  "$(VIM_FILEPATH)" -o a <cr>
-au BufNewFile,BufRead *.cpp  nnoremap <silent> <F9> :w<cr>:AsyncRun g++  "$(VIM_FILEPATH)" -o a <cr>
-au BufNewFile,BufRead *.java  nnoremap <silent> <F9> :w<cr>:AsyncRun javac  "$(VIM_FILEPATH)"<cr>
-
-" F5 运行(单个文件)
-""nnoremap <silent> <F5> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
-au BufNewFile,BufRead *.c  nnoremap <silent> <F5> :!./a<cr>
-au BufNewFile,BufRead *.cpp  nnoremap <silent> <F5> :!./a<cr>
-au BufNewFile,BufRead *.py  nnoremap <silent> <F5> :! ./%<cr>
-au BufNewFile,BufRead *.sh  nnoremap <silent> <F5> :! ./%<cr>
-au BufNewFile,BufRead *.java  nnoremap <silent> <F5> :! java %:r<cr>
 
 
 
@@ -387,22 +275,14 @@ let g:NERDToggleCheckAllLines = 1
 " vim-airline
 "--------------------------------------
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
 " 几个主题：murmur bubblegum cobalt2 laederon wombat deus simple
 " kolor fruit_punch behelit
-let g:airline_theme = 'fruit_punch'
+let g:airline_theme = 'onedark'
 
-" 顶部配置
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = '◤'
-let g:airline#extensions#tabline#left_alt_sep = ' '
-let g:airline#extensions#tabline#right_sep = '◢'
-let g:airline#extensions#tabline#right_alt_sep = ' '
-let g:airline#extensions#tabline#formatter = 'default'
 
-" 底部配置
-let g:airline_left_sep = "◤"
-let g:airline_right_sep = "◢"
 
 
 "--------------------------------------
@@ -410,17 +290,3 @@ let g:airline_right_sep = "◢"
 "--------------------------------------
 " 需要安装 ctags
 nmap <F8> :TagbarToggle<CR>
-
-
-"--------------------------------------
-" MarkDown
-"--------------------------------------
-"禁止自启动
-let g:instant_markdown_autostart = 0
-
-"让网络中的其他主机也可以访问
-let g:instant_markdown_open_to_the_world = 1
-
-"按 F6 启动
-map <F6> :InstantMarkdownPreview<CR>
-
