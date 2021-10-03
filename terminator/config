@@ -1,13 +1,13 @@
 [global_config]
-  borderless = True
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.7
+    background_color = "#24262a"
+    background_darkness = 0.9
     background_type = transparent
     cursor_color = "#aaaaaa"
-    font = 文泉驿等宽微米黑 Italic 12
-    foreground_color = "#f14eff"
+    font = 文泉驿等宽微米黑 Italic 13
+    foreground_color = "#62a0ea"
     show_titlebar = False
     scrollbar_position = hidden
     palette = "#000000:#cc0000:#73d216:#aa5500:#7f6bf4:#3fb0bf:#00aaaa:#aaaaaa:#c17d11:#ef2929:#55ff55:#ffff55:#7040ff:#41ecfe:#55ffff:#ffffff"
@@ -15,6 +15,7 @@
 [layouts]
   [[default]]
     [[[window0]]]
+      size = 1200, 950
       type = Window
       parent = ""
     [[[child1]]]
